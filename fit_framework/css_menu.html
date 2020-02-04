@@ -1,24 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSS Menu</title>
+    
     <style>
+    
     * {
         margin: 0;
         padding: 0;
     }
-    </style>
-</head>
-<body>
-    <div style="background-color: blueviolet; height: 30px; display: flex; flex-direction: row; justify-content: flex-start; align-items: center;">
-            <div style="color: white; padding-left: 15px; padding-right: 65px; font-weight: bold;">File</div>
-            <div style="color: white; padding-left: 15px; padding-right: 65px; font-weight: bold;">Edit</div>
-            <div style="color: white; padding-left: 15px; padding-right: 65px; font-weight: bold;">Help</div>
-        </div>
-    </div>
     
+    .purple_nav_bar {
+        background-color: blueviolet; 
+        height: 30px; 
+        display: flex; 
+        flex-direction: row; 
+        justify-content: flex-start; 
+        align-items: center;
+    }
+    
+    .nav_name {
+        color: white; 
+        padding-left: 15px; 
+        padding-right: 65px; 
+        font-weight: bold;
+    }
+    
+    </style>
+
+</head>
+
+<body>
+
+    <div class="purple_nav_bar">
+        <div class="nav_name">File</div>
+        <div class="nav_name">Edit</div>
+        <div class="nav_name">Help</div>
+    </div>
+
 </body>
 </html>
