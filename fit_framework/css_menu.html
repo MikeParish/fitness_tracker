@@ -23,6 +23,27 @@
         justify-content: flex-start; 
         align-items: center;
     }
+
+    .purp_nav_item_1 {
+        color: white; 
+        padding-left: 15px; 
+        padding-right: 65px; 
+        font-weight: bold;
+    }
+
+    .purp_nav_item_2 {
+        color: white; 
+        padding-left: 15px; 
+        padding-right: 65px; 
+        font-weight: bold;
+    }
+
+    .purp_nav_item_3 {
+        color: white; 
+        padding-left: 15px; 
+        padding-right: 65px; 
+        font-weight: bold;
+    }
     
     .nav_item {
         color: white; 
@@ -31,27 +52,42 @@
         font-weight: bold;
     }
 
-    .extension_bars {
+    /*.extension_bars {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: flex-start;
     }
+    */
 
-    .nav_extension_1 {
-        background-color: cadetblue;
-        height: 120px;
-        width: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+    .dropdown {
+        position: relative;
+        display: inline-block;
     }
 
+    .nav_extension_1 {
+        display: none;
+        position: absolute;
+        background-color: cadetblue;
+        height: 120px;
+        width: 110px;
+        z-index: 1;
+        
+
+        /*display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;*/
+    }
+
+    .dropdown:hover .nav_extension_1 {
+        display: block;
+    }
+/*
     .nav_extension_2 {
         background-color: tomato;
         height: 150px;
-        width: 100px;
+        width: 110px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -61,13 +97,13 @@
     .nav_extension_3 {
         background-color: cyan;
         height: 30px;
-        width: 100px;
+        width: 110px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
     }
-    
+*/    
     </style>
 
 </head>
@@ -75,28 +111,35 @@
 <body>
 
     <div class="purple_nav_bar">
+
+        <div class="dropdown">
+            
+            <div><h1 class="purp_nav_item_1">File</h1></div>
+                
+                <div class="nav_extension_1">
+            
+                    <div class="nav_item">Open</div>
+            
+                    <div class="nav_item">Save</div>
+                
+                    <div class="nav_item">Print</div>
+                
+                    <div class="nav_item">Exit</div>
+    
+                </div>
+            
+            </div>
         
-        <div class="nav_item">File</div>
+        </div>
         
-        <div class="nav_item">Edit</div>
+        <div class="purp_nav_item_2">Edit</div>
         
-        <div class="nav_item">Help</div>
+        <div class="purp_nav_item_3">Help</div>
     
     </div>
 
-    <div class="extension_bars">
-
-        <div class="nav_extension_1">
-        
-            <div class="nav_item">Open</div>
-        
-            <div class="nav_item">Save</div>
-            
-            <div class="nav_item">Print</div>
-            
-            <div class="nav_item">Exit</div>      
-
-        </div>
+    <!-- <div class="extension_bars"> -->
+    
 
         <div class="nav_extension_2">
         
@@ -106,9 +149,9 @@
         
             <div class="nav_item">Paste</div>
         
-            <div class="nav_item">---</div>
+            <div class="nav_item">----</div>
         
-            <div class="nav_item">Format</div> 
+            <div class="nav_item">Format</div>
 
         </div>
 
@@ -118,13 +161,6 @@
 
         </div>
 
-    </div>
-
-        <div style="background-color: tomato; height: 150px;"></div>
-
-        <div style="background-color: blue; height: 30px;"></div>
-        
-    
     </div>
 
 </body>
