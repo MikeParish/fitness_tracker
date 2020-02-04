@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     
     <meta charset="UTF-8">
@@ -23,11 +24,48 @@
         align-items: center;
     }
     
-    .nav_name {
+    .nav_item {
         color: white; 
         padding-left: 15px; 
         padding-right: 65px; 
         font-weight: bold;
+    }
+
+    .extension_bars {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .nav_extension_1 {
+        background-color: cadetblue;
+        height: 120px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav_extension_2 {
+        background-color: tomato;
+        height: 150px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav_extension_3 {
+        background-color: cyan;
+        height: 30px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
     }
     
     </style>
@@ -37,9 +75,56 @@
 <body>
 
     <div class="purple_nav_bar">
-        <div class="nav_name">File</div>
-        <div class="nav_name">Edit</div>
-        <div class="nav_name">Help</div>
+        
+        <div class="nav_item">File</div>
+        
+        <div class="nav_item">Edit</div>
+        
+        <div class="nav_item">Help</div>
+    
+    </div>
+
+    <div class="extension_bars">
+
+        <div class="nav_extension_1">
+        
+            <div class="nav_item">Open</div>
+        
+            <div class="nav_item">Save</div>
+            
+            <div class="nav_item">Print</div>
+            
+            <div class="nav_item">Exit</div>      
+
+        </div>
+
+        <div class="nav_extension_2">
+        
+            <div class="nav_item">Copy</div>
+    
+            <div class="nav_item">Cut</div>
+        
+            <div class="nav_item">Paste</div>
+        
+            <div class="nav_item">---</div>
+        
+            <div class="nav_item">Format</div> 
+
+        </div>
+
+        <div class="nav_extension_3">
+        
+            <div class="nav_item">About</div> 
+
+        </div>
+
+    </div>
+
+        <div style="background-color: tomato; height: 150px;"></div>
+
+        <div style="background-color: blue; height: 30px;"></div>
+        
+    
     </div>
 
 </body>
