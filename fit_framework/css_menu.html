@@ -17,31 +17,12 @@
     
     .purple_nav_bar {
         background-color: blueviolet; 
-        height: 300px; 
-        /*display: flex; 
-        flex-direction: row; 
-        justify-content: flex-start; 
-        align-items: center;*/
+        height: 30px; 
     }
 
-    .purp_nav_item_1 {
-        color: white; 
-        padding-left: 15px; 
-        padding-right: 65px; 
-        font-weight: bold;
-    }
-
-    .purp_nav_item_2 {
-        color: black; 
-        padding-left: 15px; 
-        padding-right: 65px; 
-        font-weight: bold;
-    }
-
-    .purp_nav_item_3 {
-        color: black; 
-        padding-left: 15px; 
-        padding-right: 65px; 
+    .purp_nav_item {
+        color: white;
+        padding: 7px 65px 5px 15px; 
         font-weight: bold;
     }
     
@@ -51,7 +32,12 @@
         font-weight: bold;
     }
 
-    .dropdown {
+    .nav_item a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .dropdown_1 {
         position: relative;
         display: inline-block;
     }
@@ -62,10 +48,9 @@
         background-color: cadetblue;
         height: 120px;
         width: 110px;
-        z-index: 1; /* determines stack order */
     }   
 
-    .dropdown:hover .nav_extension_1 {
+    .dropdown_1:hover .nav_extension_1 {
         display: block;
     }
 
@@ -80,21 +65,27 @@
         background-color: tomato;
         height: 150px;
         width: 110px;
-        z-index: 1; /* determines stack order */
     }
 
     .dropdown_2:hover .nav_extension_2 {
         display: block;
     }
 
+    .dropdown_3 {
+        position: relative;
+        display: inline-block;
+    }
+
     .nav_extension_3 {
-        background-color: cyan;
-        height: 30px;
+        display: none;
+        position: absolute;
+        background-color: darkolivegreen;
+        height: 35px;
         width: 110px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+    }
+
+    .dropdown_3:hover .nav_extension_3 {
+        display: block;
     }
 
     </style>
@@ -105,19 +96,19 @@
 
     <div class="purple_nav_bar">
 
-        <div class="dropdown">
+        <div class="dropdown_1">
             
-            <div class="purp_nav_item_1">File</div>
+            <div class="purp_nav_item">File</div>
                 
             <div class="nav_extension_1">
             
-                <div class="nav_item">Open</div>
+                <div class="nav_item"><a href="./css_menu.html">Open</a></div>
             
-                <div class="nav_item">Save</div>
+                <div class="nav_item"><a href="./css_menu.html">Save</a></div>
                 
-                <div class="nav_item">Print</div>
+                <div class="nav_item"><a href="./css_menu.html">Print</a></div>
                 
-                <div class="nav_item">Exit</div>
+                <div class="nav_item"><a href="./css_menu.html">Exit</a></div>
     
             </div>
         
@@ -125,31 +116,33 @@
         
         <div class="dropdown_2">
             
-            <div class="purp_nav_item_1">Edit</div>
+            <div class="purp_nav_item">Edit</div>
 
             <div class="nav_extension_2">
         
-                <div class="nav_item">Copy</div>
+                <div class="nav_item"><a href="./css_menu.html">Copy</a></div>
         
-                <div class="nav_item">Cut</div>
+                <div class="nav_item"><a href="./css_menu.html">Cut</a></div>
             
-                <div class="nav_item">Paste</div>
+                <div class="nav_item"><a href="./css_menu.html">Paste</a></div>
             
                 <div class="nav_item">----</div>
             
-                <div class="nav_item">Format</div>
+                <div class="nav_item"><a href="./css_menu.html">Format</a></div>
     
             </div>
             
         </div>
-        
-        <div class="purp_nav_item_3">Help</div>
-    
-    </div>
 
-        <div class="nav_extension_3">
+        <div class="dropdown_3">
+
+            <div class="purp_nav_item">Help</div>
+
+            <div class="nav_extension_3">
         
-            <div class="nav_item">About</div> 
+                <div class="nav_item"><a href="./css_menu.html">About</a></div> 
+
+            </div>
 
         </div>
 
