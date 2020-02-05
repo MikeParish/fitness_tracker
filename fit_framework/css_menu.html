@@ -17,11 +17,11 @@
     
     .purple_nav_bar {
         background-color: blueviolet; 
-        height: 30px; 
-        display: flex; 
+        height: 300px; 
+        /*display: flex; 
         flex-direction: row; 
         justify-content: flex-start; 
-        align-items: center;
+        align-items: center;*/
     }
 
     .purp_nav_item_1 {
@@ -32,33 +32,24 @@
     }
 
     .purp_nav_item_2 {
-        color: white; 
+        color: black; 
         padding-left: 15px; 
         padding-right: 65px; 
         font-weight: bold;
     }
 
     .purp_nav_item_3 {
-        color: white; 
+        color: black; 
         padding-left: 15px; 
         padding-right: 65px; 
         font-weight: bold;
     }
     
     .nav_item {
-        color: white; 
-        padding-left: 15px; 
-        padding-right: 65px; 
+        color: white;
+        padding: 10px 65px 0 15px;
         font-weight: bold;
     }
-
-    /*.extension_bars {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-    */
 
     .dropdown {
         position: relative;
@@ -71,27 +62,29 @@
         background-color: cadetblue;
         height: 120px;
         width: 110px;
-        z-index: 1;
-        
-
-        /*display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;*/
-    }
+        z-index: 1; /* determines stack order */
+    }   
 
     .dropdown:hover .nav_extension_1 {
         display: block;
     }
-/*
+
+    .dropdown_2 {
+        position: relative;
+        display: inline-block;
+    }
+
     .nav_extension_2 {
+        display: none;
+        position: absolute;
         background-color: tomato;
         height: 150px;
         width: 110px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+        z-index: 1; /* determines stack order */
+    }
+
+    .dropdown_2:hover .nav_extension_2 {
+        display: block;
     }
 
     .nav_extension_3 {
@@ -103,7 +96,7 @@
         justify-content: space-between;
         align-items: center;
     }
-*/    
+
     </style>
 
 </head>
@@ -114,46 +107,45 @@
 
         <div class="dropdown">
             
-            <div><h1 class="purp_nav_item_1">File</h1></div>
+            <div class="purp_nav_item_1">File</div>
                 
-                <div class="nav_extension_1">
+            <div class="nav_extension_1">
             
-                    <div class="nav_item">Open</div>
+                <div class="nav_item">Open</div>
             
-                    <div class="nav_item">Save</div>
+                <div class="nav_item">Save</div>
                 
-                    <div class="nav_item">Print</div>
+                <div class="nav_item">Print</div>
                 
-                    <div class="nav_item">Exit</div>
+                <div class="nav_item">Exit</div>
     
-                </div>
-            
             </div>
         
         </div>
         
-        <div class="purp_nav_item_2">Edit</div>
+        <div class="dropdown_2">
+            
+            <div class="purp_nav_item_1">Edit</div>
+
+            <div class="nav_extension_2">
+        
+                <div class="nav_item">Copy</div>
+        
+                <div class="nav_item">Cut</div>
+            
+                <div class="nav_item">Paste</div>
+            
+                <div class="nav_item">----</div>
+            
+                <div class="nav_item">Format</div>
+    
+            </div>
+            
+        </div>
         
         <div class="purp_nav_item_3">Help</div>
     
     </div>
-
-    <!-- <div class="extension_bars"> -->
-    
-
-        <div class="nav_extension_2">
-        
-            <div class="nav_item">Copy</div>
-    
-            <div class="nav_item">Cut</div>
-        
-            <div class="nav_item">Paste</div>
-        
-            <div class="nav_item">----</div>
-        
-            <div class="nav_item">Format</div>
-
-        </div>
 
         <div class="nav_extension_3">
         
