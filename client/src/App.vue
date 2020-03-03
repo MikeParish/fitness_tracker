@@ -1,10 +1,12 @@
 <template>
+  
   <div id="app">
     <div id="nav">
       <MyNav></MyNav>
     </div>
     <router-view/>
   </div>
+
 </template>
 
 <script>
