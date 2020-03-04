@@ -89,7 +89,5 @@ export default {
 </script>
 
 <style>
-.is-horizontal-center {
-    justify-content: center;
-}
+
 </style>

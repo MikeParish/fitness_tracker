@@ -18,8 +18,9 @@
         <div class="navbar-start">
         
         <!-- <router-link to="/" class="navbar-item">Home</router-link> -->
-        <router-link to="/about" class="navbar-item">About</router-link>
+        <!-- <router-link to="/about" class="navbar-item">About</router-link> -->
         <router-link to="/user" class="navbar-item">User</router-link>
+        <router-link to="/tools" class="navbar-item">Tools</router-link>
 
         <!-- More nav dropdown
             <div class="navbar-item has-dropdown is-hoverable">
