@@ -1,70 +1,72 @@
 <template>
   
-  <div class="home">
-      <!-- home/user uses 2-way data binding: v-model attaches input binding to data field,
-      vue looks at event, see's that it's a model/variable, and updates it, while also 
-      outputting to console -->
-      <div class="tile is-ancestor">
-            
-            <div class="tile is-parent">
-                
-                <article class="tile is-child box notification is-success">
-                    <p class="title">Welcome New User!</p>
-                    <p class="subtitle">Let's get some info so we can start tracking you:</p>
+    <div class="home">
+      
+        <section class="section">
+            <div class="tile is-ancestor">
+                <div class="tile is-vertical is-parent is-4">
                     
-                    <label>Name:</label>
-                    <input type="text" v-model="name"/>
-                    <div></div>
-        
-                    <label>Age:</label>
-                    <input type="text" v-model="age"/>
-                    <div></div>
+                    <div class="tile is-child box">
+                        <section class="section">
+                            
+                            <i class="fas fa-weight fa-3x"></i>
+                            <section class="section">
+                            <p class="title">Welcome Back to FitnessTracker</p>
+                    
+                            <form class="container" @submit.prevent="login">
+                                {{error}}
+                                <div class="field">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input" type="email" placeholder="Email" v-model="email">
+                                        <span class="icon is-small is-left">
+                                        <i class="fas fa-envelope"></i>
+                                        </span>
+                                    </div>
+                                    <p class="help">Enter your email</p>
+                                </div>
+                            
+                                <div class="field">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input" type="password" placeholder="Password" v-model="password">
+                                        <span class="icon is-small is-left">
+                                        <i class="fas fa-lock"></i>
+                                        </span>
+                                    </div>
+                                    <p class="help">Enter your password</p>
+                                </div>
 
-                    <label>Height (in):</label>
-                    <input type="text" v-model="height"/>
-                    <div></div>
-
-                    <label>Weight (lbs):</label>
-                    <input type="text" v-model="weight"/>
-                    <div></div>
-
-                    <label>SSN:</label>
-                    <input type="text" v-model="ssn"/>
-                    <div></div>
-
-                    <label>Credit Card:</label>
-                    <input type="text" v-model="cc"/>
-                    <div></div>
-
-                </article>
-            </div>
-                
-            <div class="tile is-parent">
-                <article class="tile is-child box notification is-info">
-                    <p class="title">User Info Look Right?</p>
-                    <p class="subtitle">You can change it at any time.</p>
-                    <div>Name: <strong>{{ name }}</strong></div>
-                    <div>Age: <strong>{{ age }}</strong></div>
-                    <div>Height (in): <strong>{{ height }}</strong></div>
-                    <div>Weight (lbs): <strong>{{ weight }}</strong></div>
-                    <div>SSN: <strong>{{ ssn }}</strong></div>
-                    <div>Credit Card: <strong>{{ cc }}</strong></div>
-                    <div>Your BMI = <strong>{{ bmi(height, weight) }}</strong></div>
-                </article>
-            </div>
-                
-            <div class="tile is-parent">
-                <article class="tile is-child box notification is-warning">
-                    <p class="title">Start Tracking!</p>
-                    <p class="subtitle">Hit the button to create your profile:</p>
-                    <div class="content">
-                        <button class="button is-success" v-on:click="success = !success"><strong>Let's go!</strong></button>
-                        <p v-show="success"><strong>Whooooooo, profile created successfully!</strong></p>
+                                <div class="field is-grouped">
+                                    <div class="control">
+                                        <button class="button is-info"><strong>Login</strong></button>
+                                    </div>
+                                    
+                                    <div class="control">
+                                        <button class="button is-danger is-light">Cancel</button>
+                                    </div>
+                                </div>
+                            </form>
+                            
+                            </section>
+                        </section>
                     </div>
-                </article>
+                    
+                </div>
+                
+                <div class="tile is-4 is-parent">
+                    <div class="tile is-child box">
+                        <p class="subtitle"><b>Recent Activity</b></p>
+                        <p class="has-text-weight-bold">Lorem ipsum dolor sit amet</p> 
+                        <p>Consectetur adipiscing elit</p> 
+                        <p class="has-text-weight-bold">Etiam semper diam at erat pulvinar</p> 
+                        <p>At pulvinar felis blandit</p> 
+                        <p class="has-text-weight-bold">Vestibulum volutpat tellus diam</p> 
+                        <p>Consequat gravida libero rhoncus ut</p> 
+                        <p class="has-text-weight-bold">Morbi maximus, leo sit amet vehicula</p> 
+                        <p>Eleifend nunc dui porta orci quis</p>
+                    </div>
+                </div>
             </div>
-        
-        </div> <!-- tile is-ancestor closing div -->
+        </section>
 
     </div> <!-- class="home" closing div -->
 
@@ -73,23 +75,37 @@
 <script>
 // @ is an alias to /src
 
+import { Login } from "../models/Users";
+
 export default {
-  name: 'Home',
-  components: {
-  },
-  data: () => ({
-        name: '',
-        age: '',
-        height: '',
-        weight: '',
-        ssn: '',
-        cc: '',
-        success: false   
-  }),
-  methods: {
-      bmi: function(height, weight) {
-          return (weight/(height*height) * 703).toFixed(2);
-      }
-  }
+    name: 'Home',
+    
+    components: {
+    
+    },
+    
+    data() {
+        return {
+            email: '',
+            password: '',
+            error: ''
+        }        
+    },
+  
+    methods: {
+        login() {
+            try {
+                Login(this.email, this.password);
+                if(this.email == 'a@ft.com'){
+                    this.$router.push('/admin');
+                }
+                else {
+                    this.$router.push('/tools');
+                }
+            } catch (error) {
+                this.error = error;
+            }
+        }
+    }
 }
 </script>
