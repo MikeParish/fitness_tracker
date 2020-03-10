@@ -10,15 +10,15 @@
                             
                             <div class="tile is-child box">
                             <i class="fas fa-biking fa-3x"></i>
-                            <section class="section">
+                                <section class="section">
                                 <p class="title">Admin Exercise Creator</p>
 
                                     <div class="field">
                                         <label class="label">Exercise</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input" type="text" placeholder="Exercise" v-model="newExercise">
+                                            <input class="input is-primary" type="text" placeholder="Exercise" v-model="newExercise">
                                             <span class="icon is-small is-left">
-                                            <i class="fas fa-biking"></i>
+                                                <i class="fas fa-biking"></i>
                                             </span>
                                             <p class="help is-dark">Enter the name of exercise</p>
                                         </div>
@@ -27,7 +27,7 @@
                                     <div class="field">
                                         <label class="label">Reps/Duration</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input" type="text" placeholder="Sets or Amount" v-model="newRepsDuration">
+                                            <input class="input is-primary" type="text" placeholder="Sets or Amount" v-model="newRepsDuration">
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-clipboard"></i>
                                             </span>
@@ -38,7 +38,7 @@
                                     <div class="field">
                                         <label class="label">Description</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input" type="text" placeholder="Description" v-model="newDescription">
+                                            <input class="input is-primary" type="text" placeholder="Description" v-model="newDescription">
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-pen"></i>
                                             </span>
@@ -49,24 +49,26 @@
                                     <div class="field">
                                         <label class="label">Video URL</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input" type="text" placeholder="https://youtube.com/biking" v-model="newVideoURL">
+                                            <input class="input is-primary" type="text" placeholder="https://youtube.com/biking" v-model="newVideoURL">
                                             <span class="icon is-small is-left">
-                                            <i class="fas fa-video"></i>
+                                                <i class="fas fa-video"></i>
                                             </span>
                                             <p class="help is-dark">Enter a video URL for the exercise demo</p>
                                         </div>
                                     </div>
 
-                                    <div class="field is-grouped">
+                                    <div class="field is-grouped">                                  
                                         <div class="control">
                                             <button class="button is-primary" @click="create"><strong>Create</strong></button>
                                         </div>
                                         <div class="control">
                                             <button class="button is-danger is-light">Clear</button>
                                         </div>
-                                    </div> 
-                            </section>
+                                    </div>
+
+                                </section>
                             </div>
+                            
                         </section>
                     </div>
                         
@@ -84,10 +86,13 @@
                                     <div>{{ x.repsDuration }}</div>
                                     <div>{{ x.description }}</div>
                                     <div>{{ x.videoURL }}</div>
-                                    <button class="button is-primary" @click="addToRegiment(index)"><strong>Add to Regiment</strong></button>
-                                    <button class="button is-danger is-light" @click="deleteThisExercise(index)">Delete</button>
+                                    <div class="buttons">
+                                        <button class="button is-primary" @click="addToRegiment(index)"><strong>Add to Regiment</strong></button>
+                                        <button class="button is-danger is-light" @click="deleteThisExercise(index)">Delete</button>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -97,6 +102,7 @@
                         <div class="tile is-child box has-text-centered">
                             <p class="subtitle"><b>User Regiment</b></p>
                             <p>(connected to <b>'Dashboard'</b> via prop)</p>
+                            
                             <div class="tile is-child box" v-for="(y, index) in todos2" v-bind:key="y.id">
                                 <div>{{ y.name }}</div>
                                 <div>{{ y.repsDuration }}</div>
@@ -105,26 +111,33 @@
                                 <button class="button is-danger" @click="deleteThisFromRegiment(index)"><strong>Delete from Regiment</strong></button>
                             </div>
                             <div class="control">
-                                <button class="button is-primary" v-on:click="regimentSuccess = !regimentSuccess"><strong>Send Regiment to User</strong></button>
-                                <p v-show="regimentSuccess"><strong>Regiment sent to user successfully!</strong></p>
+                                <div class="buttons">
+                                    <button class="button is-primary" v-on:click="regimentSuccess = !regimentSuccess"><strong>Send Regiment to User</strong></button>
+                                    <p v-show="regimentSuccess"><strong>Regiment sent to user successfully!</strong></p>
+                                </div>
+
                             </div>
                         </div>
                     </div>
 
                 </div>
+
             </div>
         </section>
+
     </div>
 </template>
 
 <script>
 export default {
     data:() => ({
+        
         newExercise: '',
         newRepsDuration: '',
         newDescription: '',
         newVideoURL: '',
         regimentSuccess: false,
+        
         todos: [
             {
                 name: 'Exercise',
@@ -136,6 +149,7 @@ export default {
         todos2: []
     }),
     methods: {
+        
         create() {
             this.todos.push(
               { 
@@ -145,12 +159,15 @@ export default {
                 videoURL: this.newVideoURL,
               })
         },
+        
         deleteThisExercise(x) {
             this.todos.splice(x, 1);
         },
+        
         addToRegiment(x) {
             this.todos2.push(this.todos[x]);
         },
+        
         deleteThisFromRegiment(x) {
             this.todos2.splice(x, 1);
         }

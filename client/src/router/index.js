@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import User from '../views/User.vue'
 import Tools from '../views/Tools.vue'
 import Admin from '../views/Admin.vue'
+import Dashboard from '../views/Dashboard.vue'
+import MyProfile from '../views/MyProfile.vue'
 import { CurrentUser } from '../models/Users'
 
 Vue.use(VueRouter)
@@ -23,6 +25,18 @@ const routes = [
     path: '/tools',
     name: 'Tools',
     component: Tools,
+    meta: {isSecret: true},
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard,
+    meta: {isSecret: true},
+  },
+  {
+    path: '/myprofile',
+    name: 'MyProfile',
+    component: MyProfile,
     meta: {isSecret: true},
   },
   {

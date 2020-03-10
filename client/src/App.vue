@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import MyNav from "@/components/Nav.vue";
+import MyNav from '@/components/Nav.vue';
 import MyFooter from '@/components/Footer.vue';
-import MyHeader from '@/components/Header.vue'
+import MyHeader from '@/components/Header.vue';
 
 export default {
   components: {

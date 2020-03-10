@@ -23,6 +23,8 @@
         <!-- <router-link to="/about" class="navbar-item">About</router-link> -->
         <!-- <router-link to="/user" class="navbar-item">User</router-link> -->
         <router-link to="/admin" class="navbar-item">Admin</router-link>
+        <router-link to="/dashboard" class="navbar-item">Dashboard</router-link>
+        <router-link to="/myprofile" class="navbar-item">My Profile</router-link>
         <router-link to="/tools" class="navbar-item">Tools</router-link>
 
         <!-- More nav dropdown

@@ -1,7 +1,7 @@
-const Users = [
+export const Users = [
     { Name: 'Admin', Password: '1111', Email: 'a@ft.com' },
     { Name: 'Mike', Password: '2020', Email: 'm@ft.com' },
-    { Name: 'Beck', Password: '2021', Email: 'b@ft.com' },
+    { Name: 'Beck', Password: '2121', Email: 'b@ft.com' },
 ];
 
 export let CurrentUser = null;

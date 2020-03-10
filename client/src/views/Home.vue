@@ -20,7 +20,7 @@
                                     <label class="label">(admin: a@ft.com - 1111)</label>
                                     <label class="label">(user: m@ft.com - 2020)</label>
                                     <div class="control has-icons-left has-icons-right">
-                                        <input class="input" type="email" placeholder="Email" v-model="email">
+                                        <input class="input is-primary" type="email" placeholder="Email" v-model="email">
                                         <span class="icon is-small is-left">
                                         <i class="fas fa-envelope"></i>
                                         </span>
@@ -31,7 +31,7 @@
                                 <div class="field">
                                     <label class="label">Password</label>
                                     <div class="control has-icons-left has-icons-right">
-                                        <input class="input" type="password" placeholder="Password" v-model="password">
+                                        <input class="input is-primary" type="password" placeholder="Password" v-model="password">
                                         <span class="icon is-small is-left">
                                         <i class="fas fa-lock"></i>
                                         </span>
@@ -41,7 +41,7 @@
 
                                 <div class="field is-grouped">
                                     <div class="control">
-                                        <button class="button is-info"><strong>Login</strong></button>
+                                        <button class="button is-primary"><strong>Login</strong></button>
                                     </div>
                                     
                                     <div class="control">
@@ -97,6 +97,7 @@ export default {
     },
   
     methods: {
+        
         login() {
             try {
                 Login(this.email, this.password);
@@ -104,7 +105,7 @@ export default {
                     this.$router.push('/admin');
                 }
                 else {
-                    this.$router.push('/tools');
+                    this.$router.push('/dashboard');
                 }
             } catch (error) {
                 this.error = error;
