@@ -8,22 +8,22 @@
 				<i class="fas fa-weight"></i>
 			</div>
 		    
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <a v-bind:class="{ 'is-active':isOpen }" @click="isOpen = !isOpen" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
         </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div v-bind:class="{ 'is-active':isOpen }" id="navbarBasicExample" class="navbar-menu">
         
         <div class="navbar-start">
         
         <router-link to="/" class="navbar-item">FitnessTracker</router-link>
         <!-- <router-link to="/about" class="navbar-item">About</router-link> -->
         <!-- <router-link to="/user" class="navbar-item">User</router-link> -->
-        <router-link to="/tools" class="navbar-item">Tools</router-link>
         <router-link to="/admin" class="navbar-item">Admin</router-link>
+        <router-link to="/tools" class="navbar-item">Tools</router-link>
 
         <!-- More nav dropdown
             <div class="navbar-item has-dropdown is-hoverable">
@@ -57,7 +57,9 @@
 
 <script>
 export default {
-
+    data:() => ({
+        isOpen: false
+    })
 }
 </script>
 

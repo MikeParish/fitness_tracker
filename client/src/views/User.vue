@@ -7,33 +7,69 @@
 
         <div class="tile is-ancestor">
             <div class="tile is-parent">
-                <article class="tile is-child box notification is-success">
+                <article class="tile is-child box notification is-primary">
                     <p class="title">Welcome New User!</p>
                     <p class="subtitle">Let's get some info so we can start tracking you:</p>
                     
-                    <label>Name:</label>
-                    <input type="text" v-model="name"/>
-                    <div></div>
-        
-                    <label>Age:</label>
-                    <input type="text" v-model="age"/>
-                    <div></div>
+                    <div class="field">
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="name" placeholder="Name" v-model="name">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                        </div>
+                            <p class="help">Enter your name</p>
+                    </div>
 
-                    <label>Height (in):</label>
-                    <input type="text" v-model="height"/>
-                    <div></div>
+                    <div class="field">
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="password" placeholder="Password" v-model="password">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                        </div>
+                            <p class="help">Enter a password</p>
+                    </div>
+                    
+                    <div class="field">
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="email" placeholder="Email" v-model="email">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                        </div>
+                            <p class="help">Enter your email</p>
+                    </div>
 
-                    <label>Weight (lbs):</label>
-                    <input type="text" v-model="weight"/>
-                    <div></div>
+                    <div class="field">
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="age" placeholder="Age" v-model="age">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-birthday-cake"></i>
+                                </span>
+                        </div>
+                            <p class="help">Enter your age</p>
+                    </div>
 
-                    <label>SSN:</label>
-                    <input type="text" v-model="ssn"/>
-                    <div></div>
+                    <div class="field">
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="height" placeholder="Height" v-model="height">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-ruler-vertical"></i>
+                                </span>
+                        </div>
+                            <p class="help">Enter your height (in inches)</p>
+                    </div>
 
-                    <label>Credit Card:</label>
-                    <input type="text" v-model="cc"/>
-                    <div></div>
+                    <div class="field">
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="weight" placeholder="Weight" v-model="weight">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-weight-hanging"></i>
+                                </span>
+                        </div>
+                            <p class="help">Enter your weight (in pounds)</p>
+                    </div>
 
                 </article>
             </div>
@@ -43,11 +79,10 @@
                     <p class="title">User Info Look Right?</p>
                     <p class="subtitle">You can change it at any time.</p>
                     <div>Name: <strong>{{ name }}</strong></div>
+                    <div>Email: <strong>{{ email }}</strong></div>
                     <div>Age: <strong>{{ age }}</strong></div>
                     <div>Height (in): <strong>{{ height }}</strong></div>
                     <div>Weight (lbs): <strong>{{ weight }}</strong></div>
-                    <div>SSN: <strong>{{ ssn }}</strong></div>
-                    <div>Credit Card: <strong>{{ cc }}</strong></div>
                     <div>Your BMI = <strong>{{ bmi(height, weight) }}</strong></div>
                 </article>
             </div>
@@ -57,7 +92,7 @@
                     <p class="title">Start Tracking!</p>
                     <p class="subtitle">Hit the button to create your profile:</p>
                     <div class="content">
-                        <button class="button is-success" v-on:click="success = !success"><strong>Let's go!</strong></button>
+                        <button class="button is-info" v-on:click="success = !success"><strong>Let's go!</strong></button>
                         <p v-show="success"><strong>Whooooooo, profile created successfully!</strong></p>
                     </div>
                 </article>
@@ -73,11 +108,10 @@
 export default {
     data: () => ({
         name: '',
+        email: '',
         age: '',
         height: '',
         weight: '',
-        ssn: '',
-        cc: '',
         success: false   
     }),
     methods: {

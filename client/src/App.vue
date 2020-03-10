@@ -1,20 +1,35 @@
 <template>
   <!-- needs to be in one root element -->
   <div id="app">
+    
+    <div id="myheader">
+      <MyHeader></MyHeader>
+    </div>
+      
     <div id="nav">
       <MyNav></MyNav>
-    </div>
+      </div>
+    
     <router-view/>
+    
+    <div id="myfooter">
+      <MyFooter></MyFooter>
+    </div>
+  
   </div>
 
 </template>
 
 <script>
 import MyNav from "@/components/Nav.vue";
+import MyFooter from '@/components/Footer.vue';
+import MyHeader from '@/components/Header.vue'
 
 export default {
   components: {
-    MyNav
+    MyNav,
+    MyFooter,
+    MyHeader
   }
 }
 </script>

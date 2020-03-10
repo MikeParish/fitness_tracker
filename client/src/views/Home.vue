@@ -8,7 +8,7 @@
                     
                     <div class="tile is-child box">
                         <section class="section">
-                            
+                            <div class="tile is-child box">
                             <i class="fas fa-weight fa-3x"></i>
                             <section class="section">
                             <p class="title">Welcome Back to FitnessTracker</p>
@@ -16,6 +16,7 @@
                             <form class="container" @submit.prevent="login">
                                 {{error}}
                                 <div class="field">
+                                    <label class="label">Email</label>
                                     <div class="control has-icons-left has-icons-right">
                                         <input class="input" type="email" placeholder="Email" v-model="email">
                                         <span class="icon is-small is-left">
@@ -26,6 +27,7 @@
                                 </div>
                             
                                 <div class="field">
+                                    <label class="label">Password</label>
                                     <div class="control has-icons-left has-icons-right">
                                         <input class="input" type="password" placeholder="Password" v-model="password">
                                         <span class="icon is-small is-left">
@@ -45,27 +47,27 @@
                                     </div>
                                 </div>
                             </form>
-                            
                             </section>
+                            </div>
                         </section>
                     </div>
                     
                 </div>
                 
-                <div class="tile is-4 is-parent">
-                    <div class="tile is-child box">
-                        <p class="subtitle"><b>Recent Activity</b></p>
-                        <p class="has-text-weight-bold">Lorem ipsum dolor sit amet</p> 
-                        <p>Consectetur adipiscing elit</p> 
-                        <p class="has-text-weight-bold">Etiam semper diam at erat pulvinar</p> 
-                        <p>At pulvinar felis blandit</p> 
-                        <p class="has-text-weight-bold">Vestibulum volutpat tellus diam</p> 
-                        <p>Consequat gravida libero rhoncus ut</p> 
-                        <p class="has-text-weight-bold">Morbi maximus, leo sit amet vehicula</p> 
-                        <p>Eleifend nunc dui porta orci quis</p>
-                    </div>
-                </div>
-            </div>
+                    <div class="tile is-4 is-parent">
+                        <div class="tile is-child box">
+                            <p class="subtitle"><b>Recent Activity</b></p>
+                            <p class="has-text-weight-bold">Lorem ipsum dolor sit amet</p> 
+                            <p>Consectetur adipiscing elit</p> 
+                            <p class="has-text-weight-bold">Etiam semper diam at erat pulvinar</p> 
+                            <p>At pulvinar felis blandit</p> 
+                            <p class="has-text-weight-bold">Vestibulum volutpat tellus diam</p> 
+                            <p>Consequat gravida libero rhoncus ut</p> 
+                            <p class="has-text-weight-bold">Morbi maximus, leo sit amet vehicula</p> 
+                            <p>Eleifend nunc dui porta orci quis</p>
+                        </div>
+                    </div> 
+            </div> <!-- ancestor -->
         </section>
 
     </div> <!-- class="home" closing div -->
