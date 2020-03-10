@@ -17,6 +17,8 @@
                                 {{error}}
                                 <div class="field">
                                     <label class="label">Email</label>
+                                    <label class="label">(admin: a@ft.com - 1111)</label>
+                                    <label class="label">(user: m@ft.com - 2020)</label>
                                     <div class="control has-icons-left has-icons-right">
                                         <input class="input" type="email" placeholder="Email" v-model="email">
                                         <span class="icon is-small is-left">

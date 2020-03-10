@@ -16,7 +16,7 @@
                                     <div class="field">
                                         <label class="label">Exercise</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input" type="text" placeholder="Exercise" v-model="newEx">
+                                            <input class="input" type="text" placeholder="Exercise" v-model="newExercise">
                                             <span class="icon is-small is-left">
                                             <i class="fas fa-biking"></i>
                                             </span>
@@ -27,7 +27,7 @@
                                     <div class="field">
                                         <label class="label">Reps/Duration</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input" type="number" placeholder="0" v-model="newRepsDur">
+                                            <input class="input" type="text" placeholder="Sets or Amount" v-model="newRepsDuration">
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-clipboard"></i>
                                             </span>
@@ -38,11 +38,22 @@
                                     <div class="field">
                                         <label class="label">Description</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input" type="text" placeholder="Description" v-model="newDes">
+                                            <input class="input" type="text" placeholder="Description" v-model="newDescription">
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-pen"></i>
                                             </span>
                                             <p class="help is-dark">Enter a description for the user</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Video URL</label>
+                                        <div class="control has-icons-left has-icons-right">
+                                            <input class="input" type="text" placeholder="https://youtube.com/biking" v-model="newVideoURL">
+                                            <span class="icon is-small is-left">
+                                            <i class="fas fa-video"></i>
+                                            </span>
+                                            <p class="help is-dark">Enter a video URL for the exercise demo</p>
                                         </div>
                                     </div>
 
@@ -65,34 +76,41 @@
                     <div class="tile is-child box">
                         <div class="tile is-child box">
                             <p class="subtitle"><b>Created User Exercises</b></p>
+                            <p>(admin creates and adds to regiment)</p>
                             
                             <div class="newExercise">
                                 <div class="tile is-child box" v-for="(x, index) in todos" v-bind:key="x.id">
                                     <div>{{ x.name }}</div>
-                                    <div>{{ x.repsDur }}</div>
-                                    <div>{{ x.des }}</div>
+                                    <div>{{ x.repsDuration }}</div>
+                                    <div>{{ x.description }}</div>
+                                    <div>{{ x.videoURL }}</div>
                                     <button class="button is-primary" @click="addToRegiment(index)"><strong>Add to Regiment</strong></button>
-                                    <button class="button is-danger is-light" @click="deleteThis(index)">Delete</button>
+                                    <button class="button is-danger is-light" @click="deleteThisExercise(index)">Delete</button>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
                 
                 <div class="tile is-4 is-parent">
                     <div class="tile is-child box">
-                        <div class="tile is-child box">
+                        <div class="tile is-child box has-text-centered">
                             <p class="subtitle"><b>User Regiment</b></p>
+                            <p>(connected to <b>'Dashboard'</b> via prop)</p>
                             <div class="tile is-child box" v-for="(y, index) in todos2" v-bind:key="y.id">
-                            <div>{{ y.name }}</div>
-                            <div>{{ y.repsDur }}</div>
-                            <div>{{ y.des }}</div>
-                            <!--<button class="button is-primary" @click="addToRegiment(index)"><strong>Add to Regiment</strong></button> -->
-                            <button class="button is-danger is-light" @click="deleteThis(index)">Delete</button>
+                                <div>{{ y.name }}</div>
+                                <div>{{ y.repsDuration }}</div>
+                                <div>{{ y.description }}</div>
+                                <div>{{ y.videoURL }}</div>
+                                <button class="button is-danger" @click="deleteThisFromRegiment(index)"><strong>Delete from Regiment</strong></button>
+                            </div>
+                            <div class="control">
+                                <button class="button is-primary" v-on:click="regimentSuccess = !regimentSuccess"><strong>Send Regiment to User</strong></button>
+                                <p v-show="regimentSuccess"><strong>Regiment sent to user successfully!</strong></p>
+                            </div>
                         </div>
                     </div>
-                </div>
+
                 </div>
             </div>
         </section>
@@ -102,14 +120,17 @@
 <script>
 export default {
     data:() => ({
-        newEx: '',
-        newRepsDur: '',
-        newDes: '',
+        newExercise: '',
+        newRepsDuration: '',
+        newDescription: '',
+        newVideoURL: '',
+        regimentSuccess: false,
         todos: [
             {
-                name: 'Exercise Name',
-                repsDur: 0,
-                des: 'Description',
+                name: 'Exercise',
+                repsDuration: 'Reps/Duration',
+                description: 'Description',
+                videoURL: 'Video URL'
             }
         ],
         todos2: []
@@ -118,21 +139,20 @@ export default {
         create() {
             this.todos.push(
               { 
-                name: this.newEx, 
-                repsDur: this.newRepsDur, 
-                des: this.newDes
+                name: this.newExercise, 
+                repsDuration: this.newRepsDuration, 
+                description: this.newDescription,
+                videoURL: this.newVideoURL,
               })
         },
-        deleteThis(x) {
+        deleteThisExercise(x) {
             this.todos.splice(x, 1);
         },
         addToRegiment(x) {
             this.todos2.push(this.todos[x]);
         },
-        createExArray() {(
-                {
-
-                })
+        deleteThisFromRegiment(x) {
+            this.todos2.splice(x, 1);
         }
     }
 }
