@@ -1,6 +1,6 @@
 <template>
     
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav role="navigation" aria-label="main navigation" class="navbar">
         
         <div class="navbar-brand">
 
@@ -66,5 +66,6 @@ export default {
 </script>
 
 <style>
-
+    .navbar {
+    }
 </style>

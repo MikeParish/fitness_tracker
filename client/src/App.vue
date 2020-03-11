@@ -45,6 +45,7 @@ export default {
 
 #nav {
   padding: 30px;
+  background-color: #00d1b2;
 
   a {
     font-weight: bold;

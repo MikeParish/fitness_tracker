@@ -2,13 +2,12 @@
     <div class="admin">
 
         <section class="section">
-            <div class="tile is-ancestor">
+            <div class="tile is-ancestor notification">
                 <div class="tile is-vertical is-parent is-4">
                     
                     <div class="tile is-child box">
                         <section class="section">
                             
-                            <div class="tile is-child box">
                             <i class="fas fa-biking fa-3x"></i>
                                 <section class="section">
                                 <p class="title">Admin Exercise Creator</p>
@@ -67,7 +66,6 @@
                                     </div>
 
                                 </section>
-                            </div>
                             
                         </section>
                     </div>
@@ -76,48 +74,46 @@
                 
                 <div class="tile is-4 is-parent">
                     <div class="tile is-child box">
-                        <div class="tile is-child box">
-                            <p class="subtitle"><b>Created User Exercises</b></p>
-                            <p>(admin creates and adds to regiment)</p>
+                        <p class="title"><b>Created User Exercises</b></p>
+                        <p>(admin creates and adds to regiment)</p>
                             
-                            <div class="newExercise">
-                                <div class="tile is-child box" v-for="(x, index) in todos" v-bind:key="x.id">
-                                    <div>{{ x.name }}</div>
-                                    <div>{{ x.repsDuration }}</div>
-                                    <div>{{ x.description }}</div>
-                                    <div>{{ x.videoURL }}</div>
-                                    <div class="buttons">
-                                        <button class="button is-primary" @click="addToRegiment(index)"><strong>Add to Regiment</strong></button>
-                                        <button class="button is-danger is-light" @click="deleteThisExercise(index)">Delete</button>
-                                    </div>
+                        <div class="newExercise">
+                            <div class="tile is-child box" v-for="(x, index) in todos" v-bind:key="x.id">
+                                <div>{{ x.name }}</div>
+                                <div>{{ x.repsDuration }}</div>
+                                <div>{{ x.description }}</div>
+                                <div>{{ x.videoURL }}</div>
+                                <div class="buttons">
+                                    <button class="button is-primary" @click="addToRegiment(index)"><strong>Add to Regiment</strong></button>
+                                    <button class="button is-danger is-light" @click="deleteThisExercise(index)">Delete</button>
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
                 </div>
                 
                 <div class="tile is-4 is-parent">
                     <div class="tile is-child box">
-                        <div class="tile is-child box has-text-centered">
-                            <p class="subtitle"><b>User Regiment</b></p>
-                            <p>(connected to <b>'Dashboard'</b> via prop)</p>
+                        <p class="title"><b>User Regiment</b></p>
+                        <p>(connected to <b>'Dashboard'</b> via prop)</p>
                             
-                            <div class="tile is-child box" v-for="(y, index) in todos2" v-bind:key="y.id">
-                                <div>{{ y.name }}</div>
-                                <div>{{ y.repsDuration }}</div>
-                                <div>{{ y.description }}</div>
-                                <div>{{ y.videoURL }}</div>
-                                <button class="button is-danger" @click="deleteThisFromRegiment(index)"><strong>Delete from Regiment</strong></button>
-                            </div>
-                            <div class="control">
-                                <div class="buttons">
-                                    <button class="button is-primary" v-on:click="regimentSuccess = !regimentSuccess"><strong>Send Regiment to User</strong></button>
-                                    <p v-show="regimentSuccess"><strong>Regiment sent to user successfully!</strong></p>
-                                </div>
-
-                            </div>
+                        <div class="tile is-child box" v-for="(y, index) in todos2" v-bind:key="y.id">
+                            <div>{{ y.name }}</div>
+                            <div>{{ y.repsDuration }}</div>
+                            <div>{{ y.description }}</div>
+                            <div>{{ y.videoURL }}</div>
+                            <button class="button is-danger" @click="deleteThisFromRegiment(index)"><strong>Delete from Regiment</strong></button>
                         </div>
+                        
+                        <div class="control">
+                            <div class="buttons">
+                                <button class="button is-primary" v-on:click="regimentSuccess = !regimentSuccess"><strong>Send Regiment to User</strong></button>
+                                <p v-show="regimentSuccess"><strong>Regiment sent to user successfully!</strong></p>
+                            </div>
+
+                        </div>
+                        
                     </div>
 
                 </div>

@@ -5,7 +5,7 @@
         vue looks at event, see's that it's a model/variable, and updates it, while also 
         outputting to console -->
 
-        <div class="tile is-ancestor">
+        <div class="tile is-ancestor notification">
             <div class="tile is-parent">
                 <article class="tile is-child box notification is-primary">
                     <p class="title">Welcome New User!</p>
@@ -123,5 +123,9 @@ export default {
 </script>
 
 <style>
+
+    .user {
+        padding: 50px 0;
+    }
 
 </style>

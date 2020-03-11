@@ -3,12 +3,12 @@
     <div class="home">
       
         <section class="section">
-            <div class="tile is-ancestor">
+            <div class="tile is-ancestor notification">
                 <div class="tile is-vertical is-parent is-4">
                     
                     <div class="tile is-child box">
                         <section class="section">
-                            <div class="tile is-child box">
+                            
                             <i class="fas fa-weight fa-3x"></i>
                             <section class="section">
                             <p class="title">Welcome Back to FitnessTracker</p>
@@ -50,7 +50,7 @@
                                 </div>
                             </form>
                             </section>
-                            </div>
+                            
                         </section>
                     </div>
                     
@@ -58,7 +58,7 @@
                 
                     <div class="tile is-4 is-parent">
                         <div class="tile is-child box">
-                            <p class="subtitle"><b>Recent Activity</b></p>
+                            <p class="title"><b>Recent Activity</b></p>
                             <p class="has-text-weight-bold">Lorem ipsum dolor sit amet</p> 
                             <p>Consectetur adipiscing elit</p> 
                             <p class="has-text-weight-bold">Etiam semper diam at erat pulvinar</p> 
@@ -77,8 +77,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
 import { Login } from "../models/Users";
 
 export default {
@@ -114,3 +112,7 @@ export default {
     }
 }
 </script>
+
+<style>
+
+</style>
