@@ -8,7 +8,6 @@
                     <div class="tile is-child box">
                             
                         <p class="title"><b>My User Regiment</b></p>
-                        <p>(connected to <b>'Admin'</b> via prop)</p>
 
                         <div class="newExercise">
                             <div class="tile is-child box" v-for="(x, index) in todos" v-bind:key="x.id">
@@ -29,7 +28,6 @@
                 <div class="tile is-4 is-parent">
                     <div class="tile is-child box">
                         <p class="title"><b>Completed Exercises</b></p>
-                        <p>(user marks as complete, adds info, and posts to feed)</p>
                             
                         <div class="newExercise">
                             <div class="tile is-child box" v-for="y in todos2" v-bind:key="y.id">

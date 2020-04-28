@@ -1,5 +1,5 @@
 <template>
-  <!-- needs to be in one root element -->
+
   <div id="app">
     
     <div id="myheader">

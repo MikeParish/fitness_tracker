@@ -32,7 +32,6 @@
                     <div class="tile is-child box">
                             
                             <p class="title"><b>Feed</b></p>
-                            <p>(connected to <b>'Dashboard'</b> via prop)</p>
 
                             <div class="newExercise">
                                 <div class="tile is-child box" v-for="x in todos2" v-bind:key="x.id">

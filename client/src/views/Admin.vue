@@ -75,7 +75,6 @@
                 <div class="tile is-4 is-parent">
                     <div class="tile is-child box">
                         <p class="title"><b>Created User Exercises</b></p>
-                        <p>(admin creates and adds to regiment)</p>
                             
                         <div class="newExercise">
                             <div class="tile is-child box" v-for="(x, index) in todos" v-bind:key="x.id">
@@ -96,7 +95,6 @@
                 <div class="tile is-4 is-parent">
                     <div class="tile is-child box">
                         <p class="title"><b>User Regiment</b></p>
-                        <p>(connected to <b>'Dashboard'</b> via prop)</p>
                             
                         <div class="tile is-child box" v-for="(y, index) in todos2" v-bind:key="y.id">
                             <div>{{ y.name }}</div>
