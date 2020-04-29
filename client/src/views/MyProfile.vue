@@ -7,16 +7,16 @@
                 <div class="tile is-4 is-parent">
                     <div class="tile is-child box">
                         
-                            <p class="title"><b>User Profile</b></p>
+                            <p class="subtitle"><b>User Profile</b></p>
 
                             <div class="user-profile">
                                 <figure id="centerer" class="image is-128x128">
-                                    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                                    <img class="is-rounded" v-bind:src="userImage">
                                 </figure>
-                                <p class="title">{{ userProfileName }}</p>
-                                <p class="subtitle">New Paltz, NY</p>
+                                <p class="title">{{ userName }}</p>
+                                <p class="subtitle">{{ userLocation }}</p>
                                 <div>
-                                    <p>I'm hoping to run a 5k this fall</p>
+                                    <p>"{{ userGoal }}"</p>
                                     <div class="field">
                                         <div class="control">
                                             <textarea class="textarea is-primary" placeholder="My favorite fitness activities include walking and swimming"></textarea>
@@ -31,39 +31,7 @@
                 <div class="tile is-8 is-parent">
                     <div class="tile is-child box">
                             
-                            <p class="title"><b>Feed</b></p>
-
-                            <div class="newExercise">
-                                <div class="tile is-child box" v-for="x in todos2" v-bind:key="x.id">
-                                <div>{{ x.name }}</div>
-                                <div>{{ x.repsDuration }}</div>
-                                <div>{{ x.description }}</div>
-                                <div>{{ x.videoURL }}</div>
-                                <div class="field">
-                                    <label class="label" id="toptenpx">Your Reps/Duration</label>
-                                    <div class="control has-icons-left has-icons-right">
-                                        <input class="input is-primary" type="text" placeholder="Your Reps/Duration" v-model="userRepsDuration">
-                                        <span class="icon is-small is-left">
-                                            <i class="fas fa-clipboard"></i>
-                                        </span>
-                                        <p class="help is-dark">Enter your reps/duration</p>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label class="label" id="notes">Additional Notes</label>
-                                    <div class="control has-icons-left has-icons-right">
-                                        <textarea class="textarea is-primary" placeholder="Your Notes" v-model="userNotes"></textarea>
-                                        <p class="help is-dark">Enter your notes</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="buttons">
-                                    <button class="button is-primary" v-on:click="feedSuccess = !feedSuccess"><strong>Post to Feed</strong></button>
-                                    <button class="button is-primary is-light"><strong>Save</strong></button>
-                                    <p v-show="feedSuccess"><strong>Posted to your profile activity feed!</strong></p>
-                                </div>
-                                </div>
-                            </div>     
+                            <p class="title"><b>Feed</b></p>  
 
                     </div>
                 </div>  
@@ -76,12 +44,19 @@
 
 <script>
 import { CurrentUser } from "../models/Users";
+import MyProfile from "../models/MyProfile";
 
 export default {
     data:() => ({
-
-        userProfileName: CurrentUser.Name,
+        MyProfile,
+        userName: MyProfile.State.MyProf.Name,
+        userLocation: MyProfile.State.MyProf.Location,
+        userImage: MyProfile.State.MyProf.ProfileImage,
+        userGoal: MyProfile.State.MyProf.Goal,
     }),
+    created() {
+        MyProfile.Init()
+    },
     methods: {
         
         create() {

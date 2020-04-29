@@ -96,9 +96,9 @@ export default {
   
     methods: {
         
-        login() {
+        async login() {
             try {
-                Login(this.email, this.password);
+                await Login(this.email, this.password);
                 if(this.email == 'a@ft.com'){
                     this.$router.push('/admin');
                 }

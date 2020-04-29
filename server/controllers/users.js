@@ -6,7 +6,7 @@ const router = express.Router();
 
 router
     .get('/', (req, res) => res.send({
-        Test: users.Users
+        Userz: users.Users
     }) )
     .post('/login', (req, res) => {
         try {
