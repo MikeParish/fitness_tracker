@@ -1,6 +1,7 @@
 const express = require('express');
 
 const myprofile = require('../models/MyProfile'); // like a pointer
+const dashboard = require('../models/Dashboard');
 
 const router = express.Router();
 

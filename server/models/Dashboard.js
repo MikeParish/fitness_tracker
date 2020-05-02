@@ -1,0 +1,11 @@
+const Exercises = [
+    {
+        
+    }
+];
+
+
+
+module.exports = {
+    
+}

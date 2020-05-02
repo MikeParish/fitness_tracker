@@ -15,7 +15,8 @@
                                     <div class="field">
                                         <label class="label">Exercise</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input is-primary" type="text" placeholder="Exercise" v-model="newExercise">
+                                            <input  class="input is-primary" type="text" 
+                                                    placeholder="Exercise" v-model="newExercise">
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-biking"></i>
                                             </span>
@@ -26,7 +27,8 @@
                                     <div class="field">
                                         <label class="label">Reps/Duration</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input is-primary" type="text" placeholder="Sets or Amount" v-model="newRepsDuration">
+                                            <input  class="input is-primary" type="text" 
+                                                    placeholder="Sets or Amount" v-model="newRepsDuration">
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-clipboard"></i>
                                             </span>
@@ -37,7 +39,8 @@
                                     <div class="field">
                                         <label class="label">Description</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input is-primary" type="text" placeholder="Description" v-model="newDescription">
+                                            <input  class="input is-primary" type="text" 
+                                                    placeholder="Description" v-model="newDescription">
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-pen"></i>
                                             </span>
@@ -48,7 +51,8 @@
                                     <div class="field">
                                         <label class="label">Video URL</label>
                                         <div class="control has-icons-left has-icons-right">
-                                            <input class="input is-primary" type="text" placeholder="https://youtube.com/biking" v-model="newVideoURL">
+                                            <input  class="input is-primary" type="text" 
+                                                    placeholder="https://youtube.com/biking" v-model="newVideoURL">
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-video"></i>
                                             </span>
@@ -58,7 +62,7 @@
 
                                     <div class="field is-grouped">                                  
                                         <div class="control">
-                                            <button class="button is-primary" @click="create"><strong>Create</strong></button>
+                                            <button class="button is-primary" @click="create()"><strong>Create</strong></button>
                                         </div>
                                         <div class="control">
                                             <button class="button is-danger is-light">Clear</button>
@@ -75,10 +79,10 @@
                 <div class="tile is-4 is-parent">
                     <div class="tile is-child box">
                         <p class="title"><b>Created User Exercises</b></p>
-                            
+                        {{ test }}  
                         <div class="newExercise">
-                            <div class="tile is-child box" v-for="(x, index) in todos" v-bind:key="x.id">
-                                <div>{{ x.name }}</div>
+                            <div class="tile is-child box" v-for="(x, index) in Exercises.State.Exers" v-bind:key="x.id">
+                                <div>{{ x.tname }}</div>
                                 <div>{{ x.repsDuration }}</div>
                                 <div>{{ x.description }}</div>
                                 <div>{{ x.videoURL }}</div>
@@ -96,8 +100,8 @@
                     <div class="tile is-child box">
                         <p class="title"><b>User Regiment</b></p>
                             
-                        <div class="tile is-child box" v-for="(y, index) in todos2" v-bind:key="y.id">
-                            <div>{{ y.name }}</div>
+                        <div class="tile is-child box" v-for="(y, index) in Exercises.State.Regiments" v-bind:key="y.id">
+                            <div>{{ y.tname }}</div>
                             <div>{{ y.repsDuration }}</div>
                             <div>{{ y.description }}</div>
                             <div>{{ y.videoURL }}</div>
@@ -123,9 +127,13 @@
 </template>
 
 <script>
+import Exercises from "../models/Exercises";
+
 export default {
     data:() => ({
         
+        Exercises,
+        test: Exercises.State.Exers[0].tname,
         newExercise: '',
         newRepsDuration: '',
         newDescription: '',
@@ -140,31 +148,58 @@ export default {
                 videoURL: 'Video URL'
             }
         ],
+
         todos2: []
     }),
+    
     methods: {
         
-        create() {
-            this.todos.push(
+        async create() {
+            try {
+                console.log("anything")
+                await Exercises.addExercise(this.newExercise, this.newRepsDuration, this.newDescription, this.newVideoURL);
+                //Exercise.State.Exercise.splice(index, 1);
+            } catch (error) {
+                this.error = error;
+            }
+            
+            /*this.todos.push(
               { 
                 name: this.newExercise, 
                 repsDuration: this.newRepsDuration, 
                 description: this.newDescription,
                 videoURL: this.newVideoURL,
               })
+            // addExercise(this.newExercise, this.newRepsDuration, this.newDescription, this.newVideoURL)*/
         },
+
         
         deleteThisExercise(x) {
             this.todos.splice(x, 1);
         },
         
-        addToRegiment(x) {
-            this.todos2.push(this.todos[x]);
+        async addToRegiment(index) {
+            //this.todos2.push(this.todos[x]);
+            try {
+                console.log("anything2")
+                await Exercises.addRegiment(index)
+            } catch (error) {
+                this.error = error;
+            }
         },
         
-        deleteThisFromRegiment(x) {
-            this.todos2.splice(x, 1);
-        }
+        async deleteThisFromRegiment(index) {
+            //this.todos2.splice(x, 1);
+            try {
+                console.log("anything3")
+                await Exercises.deleteFromRegiment(index)
+            } catch (error) {
+                this.error = error;
+            }
+        },
+    },
+    created() {
+        Exercises.Init() //when page is loaded, init is executed (init is myFetch)
     }
 }
 </script>

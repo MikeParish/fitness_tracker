@@ -10,8 +10,8 @@
                         <p class="title"><b>My User Regiment</b></p>
 
                         <div class="newExercise">
-                            <div class="tile is-child box" v-for="(x, index) in todos" v-bind:key="x.id">
-                                <div>{{ x.name }}</div>
+                            <div class="tile is-child box" v-for="(x, index) in Dashboard.State.Regiments" v-bind:key="x.tname">
+                                <div>{{ x.tname }}</div>
                                 <div>{{ x.repsDuration }}</div>
                                 <div>{{ x.description }}</div>
                                 <div>{{ x.videoURL }}</div>
@@ -88,10 +88,13 @@
 
 <script>
 import { CurrentUser } from '../models/Users';
+import Dashboard from "../models/Dashboard";
 
 export default {
     data:() => ({
         
+        Dashboard,
+        userRepsDuration: '',
         newExercise: '',
         newRepsDuration: '',
         newDescription: '',
@@ -132,6 +135,9 @@ export default {
         deleteThisFromRegiment(x) {
             this.todos2.splice(x, 1);
         },
+    },
+    created() {
+        Dashboard.Init()
     }
 }
 </script>
