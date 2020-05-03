@@ -1,11 +1,3 @@
-const Exercises = [
-    {
-        
-    }
-];
-
-
-
 module.exports = {
-    
+
 }

@@ -82,7 +82,7 @@
                         <p class="title"><b>Created User Exercises</b></p>
 
                         <div class="newExercise">
-                            <div class="tile is-child box" v-for="(x, index) in Exercises.State.Exers" v-bind:key="x.id">
+                            <div class="tile is-child box" v-for="(x, index) in Exercises.State.Exers" v-bind:key="x.tname">
                                 <div>{{ x.tname }}</div>
                                 <div>{{ x.repsDuration }}</div>
                                 <div>{{ x.description }}</div>

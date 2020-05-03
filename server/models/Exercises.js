@@ -9,9 +9,12 @@ const Exercises = [
 
 const Regiments = [];
 
+const Completed = [];
+
 module.exports = {
     Exercises,
     Regiments,
+    Completed,
     addExercise(tname, repsDuration, description, videoURL) {
         Exercises.push({tname, repsDuration, description, videoURL});
         return true;
@@ -27,6 +30,11 @@ module.exports = {
     },
     deleteFromExercise(index) {
         Exercises.splice(index, 1);
+        return true;
+    },
+    addCompleted(index) {
+        const completed = Regiments[index];
+        Completed.push(completed);
         return true;
     },
 }

@@ -7,8 +7,9 @@ const exercises = require('../models/Exercises'); //get different pages to inter
 const router = express.Router();
 
 router
-    .get('/', (req, res) => res.send({ // /exercise/
-        Regiments: exercises.Regiments
+    .get('/', (req, res) => res.send({ // /exercises/
+        Regiments: exercises.Regiments,
+        Completed: exercises.Completed
     }) )
 
 module.exports = router;

@@ -16,7 +16,7 @@
                                 <div>{{ x.description }}</div>
                                 <div>{{ x.videoURL }}</div>
                                 <div class="buttons">
-                                    <button class="button is-primary" @click="markAsCompleted(index)"><strong>Mark as Completed</strong></button>
+                                    <button class="button is-primary" @click="addToCompleted(index)"><strong>Mark as Completed</strong></button>
                                 </div>
                             </div>
                         </div>
@@ -27,11 +27,11 @@
                 
                 <div class="tile is-4 is-parent">
                     <div class="tile is-child box">
-                        <p class="title"><b>Completed Exercises</b></p>
+                        <p class="title"><b>My Completed Exercises</b></p>
                             
                         <div class="newExercise">
-                            <div class="tile is-child box" v-for="y in todos2" v-bind:key="y.id">
-                            <div>{{ y.name }}</div>
+                            <div class="tile is-child box" v-for="y in Dashboard.State.Completed" v-bind:key="y.tname">
+                            <div>{{ y.tname }}</div>
                             <div>{{ y.repsDuration }}</div>
                             <div>{{ y.description }}</div>
                             <div>{{ y.videoURL }}</div>
@@ -113,27 +113,35 @@ export default {
         todos2: []
     }),
     methods: {
-        
-        create() {
-            this.todos.push(
-              { 
-                name: this.newExercise, 
-                repsDuration: this.newRepsDuration, 
-                description: this.newDescription,
-                videoURL: this.newVideoURL,
-              })
+
+        /*async markAsCompleted(index) {
+            //this.todos2.push(this.todos[x]);
+            try {
+                await Dashboard.markCompleted(index)
+            } catch (error) {
+                this.error = error;
+            }
         },
         
-        deleteThisExercise(x) {
-            this.todos.splice(x, 1);
-        },
-        
-        markAsCompleted(x) {
-            this.todos2.push(this.todos[x]);
-        },
-        
-        deleteThisFromRegiment(x) {
-            this.todos2.splice(x, 1);
+        async addToRegiment(index) {
+            //this.todos2.push(this.todos[x]);
+            try {
+                await Exercises.addRegiment(index)
+            } catch (error) {
+                this.error = error;
+            }
+        },*/
+
+        //exercisesAddMethod(index) {
+        //    Exercises.addRegiment(index)
+        //}
+
+        async addToCompleted(index) {
+            try {
+                await Dashboard.addCompleted(index)
+            } catch (error) {
+                this.error = error;
+            }
         },
     },
     created() {
