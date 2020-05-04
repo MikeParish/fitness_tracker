@@ -16,7 +16,8 @@
                                 <div>{{ x.description }}</div>
                                 <div>{{ x.videoURL }}</div>
                                 <div class="buttons">
-                                    <button class="button is-primary" @click="addToCompleted(index)"><strong>Mark as Completed</strong></button>
+                                    <button class="button is-primary" 
+                                            @click="addToCompleted(index)"><strong>Mark as Completed</strong></button>
                                 </div>
                             </div>
                         </div>
@@ -30,7 +31,8 @@
                         <p class="title"><b>My Completed Exercises</b></p>
                             
                         <div class="newExercise">
-                            <div class="tile is-child box" v-for="y in Dashboard.State.Completed" v-bind:key="y.tname">
+                            <div class="tile is-child box" v-for="(y, index) in Dashboard.State.Completed" v-bind:key="y.tname">
+                                <!--y is each object in the array, index is which object-->
                             <div>{{ y.tname }}</div>
                             <div>{{ y.repsDuration }}</div>
                             <div>{{ y.description }}</div>
@@ -38,7 +40,10 @@
                             <div class="field">
                                 <label class="label" id="toptenpx">Your Reps/Duration</label>
                                 <div class="control has-icons-left has-icons-right">
-                                    <input class="input is-primary" type="text" placeholder="Your Reps/Duration" v-model="userRepsDuration">
+                                    <input  class="input is-primary" 
+                                            type="text"
+                                            placeholder="Enter your reps/duration"                                       
+                                            v-model="userRepsDuration">
                                     <span class="icon is-small is-left">
                                         <i class="fas fa-clipboard"></i>
                                     </span>
@@ -49,13 +54,16 @@
                             <div class="field">
                                 <label class="label" id="notes">Additional Notes</label>
                                 <div class="control has-icons-left has-icons-right">
-                                    <textarea class="textarea is-primary" placeholder="Your Notes" v-model="userNotes"></textarea>
+                                    <textarea class="textarea is-primary" 
+                                              placeholder="Your Notes" 
+                                              v-model="userNotes"></textarea>
                                     <p class="help is-dark">Enter your notes</p>
                                 </div>
                             </div>
                                 
                             <div class="buttons">
-                                <button class="button is-primary" v-on:click="feedSuccess = !feedSuccess"><strong>Post to Feed</strong></button>
+                                <button class="button is-primary" 
+                                        @click="userCompleted(index)"><strong>Post to Feed</strong></button>
                                 <button class="button is-primary is-light"><strong>Save</strong></button>
                                 <p v-show="feedSuccess"><strong>Posted to your profile activity feed!</strong></p>
                             </div>
@@ -94,47 +102,24 @@ export default {
     data:() => ({
         
         Dashboard,
-        userRepsDuration: '',
-        newExercise: '',
-        newRepsDuration: '',
-        newDescription: '',
-        newVideoURL: '',
-        feedSuccess: false,
-        welcomeBackUser: CurrentUser.Name,
         
-        todos: [
-            {
-                name: 'Exercise',
-                repsDuration: 'Reps/Duration',
-                description: 'Description',
-                videoURL: 'Video URL'
-            }
-        ],
-        todos2: []
+        userRepsDuration: '',
+        userNotes: '',
+
+        feedSuccess: false,
+        welcomeBackUser: CurrentUser.Name
+        
     }),
     methods: {
 
-        /*async markAsCompleted(index) {
-            //this.todos2.push(this.todos[x]);
+        async userCompleted(index) {
             try {
-                await Dashboard.markCompleted(index)
+                await Dashboard.addUserCompleted(index, this.userRepsDuration, this.userNotes); 
+                //index is parameter, others are v-models declared in data
             } catch (error) {
                 this.error = error;
             }
         },
-        
-        async addToRegiment(index) {
-            //this.todos2.push(this.todos[x]);
-            try {
-                await Exercises.addRegiment(index)
-            } catch (error) {
-                this.error = error;
-            }
-        },*/
-
-        //exercisesAddMethod(index) {
-        //    Exercises.addRegiment(index)
-        //}
 
         async addToCompleted(index) {
             try {
@@ -143,10 +128,13 @@ export default {
                 this.error = error;
             }
         },
+
     },
+    
     created() {
         Dashboard.Init()
     }
+
 }
 </script>
 

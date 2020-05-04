@@ -37,4 +37,11 @@ module.exports = {
         Completed.push(completed);
         return true;
     },
+    addUserCompleted(index, userRepsDuration, userNotes) {
+        const userCompleted = Completed[index];                 //getting the object via index
+        userCompleted['userRepsDuration'] = userRepsDuration;   //adding new properties to object
+        userCompleted['userNotes'] = userNotes;
+        console.log(userCompleted);
+        return true;
+    },
 }
