@@ -17,11 +17,47 @@
                                 <p class="subtitle">{{ userLocation }}</p>
                                 <div>
                                     <p>"{{ userGoal }}"</p>
-                                    <div class="field">
-                                        <div class="control">
-                                            <textarea class="textarea is-primary" placeholder="My favorite fitness activities include walking and swimming"></textarea>
+                                    <button class="button is-primary" @click="openModal">Edit Profile</button>
+                                    
+                                    <div class="modal" v-bind:class="{'is-active': openModalTrig}">
+                                        <div class="modal-background"></div>
+                                            <div class="modal-card">
+                                                <header class="modal-card-head">
+                                                <p class="modal-card-title">Edit Profile</p>
+                                                <button class="delete" aria-label="close" @click="closeModal"></button>
+                                                </header>
+                                                
+                                                <section class="modal-card-body">
+
+                                                    <div class="field">
+                                                        <label class="label level-left">Name</label>
+                                                        <div class="control">
+                                                            <input class="input" type="text" placeholder="e.g. Arnold" v-model="userNameEdit">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="field">
+                                                        <label class="label level-left">Location</label>
+                                                        <div class="control">
+                                                            <input class="input" type="text" placeholder="e.g. City, State, Country" v-model="userLocEdit">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="field">
+                                                        <label class="label level-left">Goal</label>
+                                                        <div class="control">
+                                                            <input class="input" type="email" placeholder="e.g. I want to run a marathon" v-model="userGoalEdit">
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+                                                <footer class="modal-card-foot">
+                                                <button class="button is-primary" @click="closeModal(); userProfEditTrig()">Save changes</button>
+                                                <button class="button" @click="closeModal">Cancel</button>
+                                                </footer>
+
+                                            </div>
                                         </div>
-                                    </div>
                                 </div>
                             </div>
 
@@ -31,7 +67,7 @@
                 <div class="tile is-8 is-parent">
                     <div class="tile is-child box">
                             
-                            <p class="title"><b>Feed</b></p>  
+                            <p class="title"><b>Fitness Tracker Feed</b></p>  
 
                     </div>
                 </div>  
@@ -53,33 +89,36 @@ export default {
         userLocation: MyProfile.State.MyProf.Location,
         userImage: MyProfile.State.MyProf.ProfileImage,
         userGoal: MyProfile.State.MyProf.Goal,
+
+        openModalTrig: false,
+
+        userNameEdit: '',
+        userLocEdit: '',
+        userGoalEdit: ''
+
     }),
+    
+    methods: {
+
+        openModal() {
+            this.openModalTrig = true;
+        },
+            
+        closeModal() {
+            this.openModalTrig = false;
+        },
+        async userProfEditTrig() {
+            try {
+                await MyProfile.userProfEdit(this.userNameEdit, this.userLocEdit, this.userGoalEdit)
+            } catch (error) {
+                this.error = error;
+            }
+        }
+
+    },
+
     created() {
         MyProfile.Init()
-    },
-    methods: {
-        
-        create() {
-            this.todos.push(
-              { 
-                name: this.newExercise, 
-                repsDuration: this.newRepsDuration, 
-                description: this.newDescription,
-                videoURL: this.newVideoURL,
-              })
-        },
-        
-        deleteThisExercise(x) {
-            this.todos.splice(x, 1);
-        },
-        
-        markAsCompleted(x) {
-            this.todos2.push(this.todos[x]);
-        },
-        
-        deleteThisFromRegiment(x) {
-            this.todos2.splice(x, 1);
-        },
     }
 }
 </script>

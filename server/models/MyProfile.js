@@ -20,14 +20,16 @@ const MyProfile = [
         Location: 'New Paltz, NY, US',
         Goal: 'I want to jump around a lot'
     }
-];
-
-function Get(userid) {
-    const currentuser = Profile.find(x=> x.UserID == userid)
-    return currentuser.UserID;
-}
+]; 
 
 module.exports = {
     MyProfile,
-    Get
+    userProfEdit(userid, userNameEdit, userLocEdit, userGoalEdit) {
+        const user = MyProfile.find(x=> x.UserID == userid);
+        user.Name = userNameEdit;
+        user.Location = userLocEdit;
+        user.Goal = userGoalEdit;
+        return true;
+    }
+    
 }

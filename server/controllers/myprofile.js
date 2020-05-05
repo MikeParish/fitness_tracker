@@ -6,12 +6,11 @@ const dashboard = require('../models/Dashboard');
 const router = express.Router();
 
 router
-    .use(function(req, res, next) {
-        console.log({ UserID: req.userId })
-        next();
-    })
     .get('/', (req, res) => res.send({
-        MyProf: myprofile.MyProfile[req.userId]
+        MyProf: myprofile.MyProfile[req.userId] //sending object
     }) )
+    .post('/profileedit', (req, res) => res.send (
+        myprofile.userProfEdit(req.userId, req.body.userNameEdit, req.body.userLocEdit, req.body.userGoalEdit) //sending the function
+    ) )
 
 module.exports = router;
