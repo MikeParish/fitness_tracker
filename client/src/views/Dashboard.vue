@@ -1,8 +1,9 @@
 <template>
     <div class="dashboard">
         
-        <section class="section">
-            <div class="tile is-ancestor notification">
+        <section class="section background-img">
+            
+            <div class="tile is-ancestor notification background-img">
                 
                 <div class="tile is-4 is-parent">
                     <div class="tile is-child box">
@@ -65,7 +66,7 @@
                                 <button class="button is-primary" 
                                         @click="userCompleted(index)"><strong>Post to Feed</strong></button>
                                 <button class="button is-primary is-light"><strong>Save</strong></button>
-                                <p v-show="feedSuccess"><strong>Posted to your profile activity feed!</strong></p>
+                                <p v-show="feedSuccess"><strong>Posted to FitnessTracker Feed!</strong></p>
                             </div>
                             </div>
                         </div>
@@ -76,7 +77,7 @@
                 <div class="tile is-4 is-parent">
                     <div class="tile is-child box">
                         <p class="title"><b>Welcome back, {{ welcomeBackUser }}</b></p>
-                        <p class="subtitle"><b>Recent Activity</b></p>
+                        <p class="subtitle"><b>My Saved Exercises</b></p>
                         <p class="has-text-weight-bold">Lorem ipsum dolor sit amet</p> 
                         <p>Consectetur adipiscing elit</p> 
                         <p class="has-text-weight-bold">Etiam semper diam at erat pulvinar</p> 

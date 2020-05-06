@@ -1,8 +1,10 @@
 <template>
     <div class="admin">
 
-        <section class="section">
-            <div class="tile is-ancestor notification">
+        <section class="section background-img">
+            
+            <div class="tile is-ancestor notification background-img">
+                
                 <div class="tile is-vertical is-parent is-4">
                     
                     <div class="tile is-child box">
@@ -13,7 +15,7 @@
                                 <p class="title">Admin Exercise Creator</p>
 
                                     <div class="field">
-                                        <label class="label">Exercise</label>
+                                        <label class="label level-left">Exercise</label>
                                         <div class="control has-icons-left has-icons-right">
                                             <input  class="input is-primary" 
                                                     type="text" 
@@ -22,12 +24,12 @@
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-biking"></i>
                                             </span>
-                                            <p class="help is-dark">Enter the name of the exercise</p>
+                                            <p class="help is-dark padder-10-bottom">Enter the name of the exercise</p>
                                         </div>
                                     </div>
 
                                     <div class="field">
-                                        <label class="label">Reps/Duration</label>
+                                        <label class="label level-left">Reps/Duration</label>
                                         <div class="control has-icons-left has-icons-right">
                                             <input  class="input is-primary" 
                                                     type="text" 
@@ -36,12 +38,12 @@
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-clipboard"></i>
                                             </span>
-                                            <p class="help is-dark">Enter the reps or duration</p>
+                                            <p class="help is-dark padder-10-bottom">Enter the reps or duration</p>
                                         </div>
                                     </div>
 
                                     <div class="field">
-                                        <label class="label">Description</label>
+                                        <label class="label level-left">Description</label>
                                         <div class="control has-icons-left has-icons-right">
                                             <input  class="input is-primary" 
                                                     type="text" 
@@ -50,12 +52,12 @@
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-pen"></i>
                                             </span>
-                                            <p class="help is-dark">Enter a description for the user</p>
+                                            <p class="help is-dark padder-10-bottom">Enter a description for the user</p>
                                         </div>
                                     </div>
 
                                     <div class="field">
-                                        <label class="label">Video URL</label>
+                                        <label class="label level-left">Video URL</label>
                                         <div class="control has-icons-left has-icons-right">
                                             <input  class="input is-primary" 
                                                     type="text" 
@@ -64,7 +66,7 @@
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-video"></i>
                                             </span>
-                                            <p class="help is-dark">Enter a video URL for the exercise demo</p>
+                                            <p class="help is-dark padder-10-bottom">Enter a video URL for the exercise demo</p>
                                         </div>
                                     </div>
 
@@ -85,6 +87,7 @@
                 </div>
                 
                 <div class="tile is-4 is-parent">
+                    
                     <div class="tile is-child box">
                         
                         <p class="title"><b>Created User Exercises</b></p>

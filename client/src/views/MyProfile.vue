@@ -1,22 +1,28 @@
 <template>
     <div class="myprofile">
         
-        <section class="section">
-            <div class="tile is-ancestor notification">
+        <section class="section background-img">
+            <div class="tile is-ancestor notification background-img">
                 
                 <div class="tile is-4 is-parent">
                     <div class="tile is-child box">
                         
-                            <p class="subtitle"><b>User Profile</b></p>
+                            <p class="title"><b>User Profile</b></p>
 
                             <div class="user-profile">
                                 <figure id="centerer" class="image is-128x128">
                                     <img class="is-rounded" v-bind:src="userImage">
                                 </figure>
-                                <p class="title">{{ userName }}</p>
-                                <p class="subtitle">{{ userLocation }}</p>
+                                <div class="profile-padder">
+                                    <p class="title">{{ userName }}</p>
+                                </div>
+                                <div class="profile-padder">
+                                    <p class="subtitle">{{ userLocation }}</p>
+                                </div>
                                 <div>
+                                <div class="profile-padder">
                                     <p>"{{ userGoal }}"</p>
+                                </div>
                                     <button class="button is-primary" @click="openModal">Edit Profile</button>
                                     
                                     <div class="modal" v-bind:class="{'is-active': openModalTrig}">
@@ -32,21 +38,30 @@
                                                     <div class="field">
                                                         <label class="label level-left">Name</label>
                                                         <div class="control">
-                                                            <input class="input" type="text" placeholder="e.g. Arnold" v-model="userNameEdit">
+                                                            <input class="input" 
+                                                                   type="text" 
+                                                                   placeholder="e.g. Arnold" 
+                                                                   v-model="userNameEdit">
                                                         </div>
                                                     </div>
 
                                                     <div class="field">
                                                         <label class="label level-left">Location</label>
                                                         <div class="control">
-                                                            <input class="input" type="text" placeholder="e.g. City, State, Country" v-model="userLocEdit">
+                                                            <input class="input" 
+                                                                   type="text" 
+                                                                   placeholder="e.g. City, State, Country" 
+                                                                   v-model="userLocEdit">
                                                         </div>
                                                     </div>
 
                                                     <div class="field">
                                                         <label class="label level-left">Goal</label>
                                                         <div class="control">
-                                                            <input class="input" type="email" placeholder="e.g. I want to run a marathon" v-model="userGoalEdit">
+                                                            <input class="input" 
+                                                                   type="email" 
+                                                                   placeholder="e.g. I want to run a marathon" 
+                                                                   v-model="userGoalEdit">
                                                         </div>
                                                     </div>
                                                 </section>
@@ -67,7 +82,8 @@
                 <div class="tile is-8 is-parent">
                     <div class="tile is-child box">
                             
-                            <p class="title"><b>Fitness Tracker Feed</b></p>  
+                            <p class="title"><b>FitnessTracker Feed</b></p>
+                            <p>Complete an exercise to add it to the feed!</p>
 
                     </div>
                 </div>  
@@ -84,7 +100,9 @@ import MyProfile from "../models/MyProfile";
 
 export default {
     data:() => ({
+        
         MyProfile,
+        
         userName: MyProfile.State.MyProf.Name,
         userLocation: MyProfile.State.MyProf.Location,
         userImage: MyProfile.State.MyProf.ProfileImage,
@@ -107,6 +125,7 @@ export default {
         closeModal() {
             this.openModalTrig = false;
         },
+
         async userProfEditTrig() {
             try {
                 await MyProfile.userProfEdit(this.userNameEdit, this.userLocEdit, this.userGoalEdit)
@@ -124,11 +143,13 @@ export default {
 </script>
 
 <style>
+    
     #centerer {
         margin: auto;
     }
 
-    #whiteTile {
-        background-color: white;
+    .profile-padder {
+        padding: 20px 10px;
     }
+
 </style>

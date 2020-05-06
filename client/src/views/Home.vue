@@ -2,8 +2,8 @@
   
     <div class="home">
       
-        <section class="section">
-            <div class="tile is-ancestor notification">
+        <section  class="section notification level-item background-img">
+            
                 <div class="tile is-vertical is-parent is-4">
                     
                     <div class="tile is-child box">
@@ -11,32 +11,33 @@
                             
                             <i class="fas fa-weight fa-3x"></i>
                             <section class="section">
-                            <p class="title">Welcome Back to FitnessTracker</p>
+                            <p class="title padder-10-bottom">Welcome Back to FitnessTracker</p>
+                            <label class="label">(admin: a@ft.com - 1111)</label>
+                            <label class="label padder-10-bottom">(user: m@ft.com - 2020)</label>
                     
                             <form class="container" @submit.prevent="login">
                                 {{error}}
                                 <div class="field">
-                                    <label class="label">Email</label>
-                                    <label class="label">(admin: a@ft.com - 1111)</label>
-                                    <label class="label">(user: m@ft.com - 2020)</label>
+                                    <label class="label level-left">Email</label>
+                                    
                                     <div class="control has-icons-left has-icons-right">
                                         <input class="input is-primary" type="email" placeholder="Email" v-model="email">
                                         <span class="icon is-small is-left">
                                         <i class="fas fa-envelope"></i>
                                         </span>
                                     </div>
-                                    <p class="help">Enter your email</p>
+                                    <p class="help padder-10-bottom level-left">Enter your email</p>
                                 </div>
                             
                                 <div class="field">
-                                    <label class="label">Password</label>
+                                    <label class="label level-left">Password</label>
                                     <div class="control has-icons-left has-icons-right">
                                         <input class="input is-primary" type="password" placeholder="Password" v-model="password">
                                         <span class="icon is-small is-left">
                                         <i class="fas fa-lock"></i>
                                         </span>
                                     </div>
-                                    <p class="help">Enter your password</p>
+                                    <p class="help padder-10-bottom level-left">Enter your password</p>
                                 </div>
 
                                 <div class="field is-grouped">
@@ -56,20 +57,6 @@
                     
                 </div>
                 
-                    <div class="tile is-4 is-parent">
-                        <div class="tile is-child box">
-                            <p class="title"><b>Recent Activity</b></p>
-                            <p class="has-text-weight-bold">Lorem ipsum dolor sit amet</p> 
-                            <p>Consectetur adipiscing elit</p> 
-                            <p class="has-text-weight-bold">Etiam semper diam at erat pulvinar</p> 
-                            <p>At pulvinar felis blandit</p> 
-                            <p class="has-text-weight-bold">Vestibulum volutpat tellus diam</p> 
-                            <p>Consequat gravida libero rhoncus ut</p> 
-                            <p class="has-text-weight-bold">Morbi maximus, leo sit amet vehicula</p> 
-                            <p>Eleifend nunc dui porta orci quis</p>
-                        </div>
-                    </div> 
-            </div> <!-- ancestor -->
         </section>
 
     </div> <!-- class="home" closing div -->
@@ -114,5 +101,15 @@ export default {
 </script>
 
 <style>
-
+    .background-img { 
+    background-image: url(http://cs.newpaltz.edu/~parishm1/pics/ft_bg.jpeg) ;
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    background-color: #999;
+ }
+    .padder-10-bottom {
+        padding-bottom: 10px;
+    }
 </style>
