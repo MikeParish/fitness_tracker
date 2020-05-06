@@ -1,3 +1,5 @@
+const myprofile = require("./MyProfile");
+
 const Exercises = [
     {
         tname: 'testExercise',
@@ -9,12 +11,24 @@ const Exercises = [
 
 const Regiments = [];
 
-const Completed = [];
+const Completed = [
+    {
+        tname: 'testExercise',
+        repsDuration: 'Reps/Duration',
+        description: 'Description',
+        videoURL: 'Video URL',
+        userRepsDuration: '20',
+        userNotes: 'hey'
+    }
+];
+
+const Feed = [];
 
 module.exports = {
     Exercises,
     Regiments,
     Completed,
+    Feed,
     addExercise(tname, repsDuration, description, videoURL) {
         Exercises.push({tname, repsDuration, description, videoURL});
         return true;
@@ -41,7 +55,15 @@ module.exports = {
         const userCompleted = Completed[index];                 //getting the object via index
         userCompleted['userRepsDuration'] = userRepsDuration;   //adding new properties to object
         userCompleted['userNotes'] = userNotes;
-        console.log(userCompleted);
+        return true;
+    },
+    feedPusher(userid, index) {                                 //userid is bearer token
+        const user = myprofile.MyProfile.find(x=> x.UserID == userid);
+        const userCompletedForFeed = Completed[index];
+        Feed.push(userCompletedForFeed);
+        const feedItem = Feed.find(x=> x.tname == userCompletedForFeed.tname);
+        feedItem['name'] = user.Name;   //adding new properties to object
+        feedItem['profileImage'] = user.ProfileImage;
         return true;
     },
 }

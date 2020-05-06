@@ -64,7 +64,7 @@
                                 
                             <div class="buttons">
                                 <button class="button is-primary" 
-                                        @click="userCompleted(index)"><strong>Post to Feed</strong></button>
+                                        @click="userCompleted(index), addToFeed(index)"><strong>Post to Feed</strong></button>
                                 <button class="button is-primary is-light"><strong>Save</strong></button>
                                 <p v-show="feedSuccess"><strong>Posted to FitnessTracker Feed!</strong></p>
                             </div>
@@ -125,6 +125,14 @@ export default {
         async addToCompleted(index) {
             try {
                 await Dashboard.addCompleted(index)
+            } catch (error) {
+                this.error = error;
+            }
+        },
+
+        async addToFeed(index) {
+            try {
+                await Dashboard.feedPusher(index)
             } catch (error) {
                 this.error = error;
             }

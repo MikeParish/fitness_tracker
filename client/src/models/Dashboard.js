@@ -20,4 +20,9 @@ export default {
         //post request - url, body 
         return true;
     },
+    async feedPusher(index) {   //userId is bearer token myFetch only needs body parameter here, userId is used in controller
+        await myFetch('/exercises/feedpusher', {index}); 
+        //post request - url, body
+        return true;
+    },
 }

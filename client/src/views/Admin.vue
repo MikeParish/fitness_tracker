@@ -113,7 +113,7 @@
                         
                         <p class="title"><b>User Regiment</b></p>
                             
-                        <div class="tile is-child box" v-for="(y, index) in Exercises.State.Regiments" v-bind:key="y.id">
+                        <div class="tile is-child box" v-for="(y, index) in Exercises.State.Regiments" v-bind:key="y.tname">
                             <div>{{ y.tname }}</div>
                             <div>{{ y.repsDuration }}</div>
                             <div>{{ y.description }}</div>

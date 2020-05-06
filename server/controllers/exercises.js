@@ -8,7 +8,8 @@ router
     .get('/', (req, res) => res.send({                      // /exercises/
         Exers: exercises.Exercises,
         Regiments: exercises.Regiments,
-        Completed: exercises.Completed
+        Completed: exercises.Completed,
+        Feed: exercises.Feed
     }) )
     .post('/addexercises', (req, res) => res.send(          // /exercises/addexercises
         exercises.addExercise(req.body.tname, req.body.repsDuration, req.body.description, req.body.videoURL)
@@ -27,6 +28,9 @@ router
     ) )
     .post('/addusercompleted', (req, res) => res.send(      // /exercises/addusercompleted
         exercises.addUserCompleted(req.body.index, req.body.userRepsDuration, req.body.userNotes)
+    ) )
+    .post('/feedpusher', (req, res) => res.send(            // /exercises/feedpusher
+        exercises.feedPusher(req.userId, req.body.index)
     ) )
 
 module.exports = router;

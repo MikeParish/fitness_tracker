@@ -9,7 +9,8 @@ const router = express.Router();
 router
     .get('/', (req, res) => res.send({ // /exercises/
         Regiments: exercises.Regiments,
-        Completed: exercises.Completed
+        Completed: exercises.Completed,
+        Feed: exercises.Feed
     }) )
 
 module.exports = router;
