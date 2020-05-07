@@ -39,7 +39,7 @@
                             <div>{{ y.description }}</div>
                             <div>{{ y.videoURL }}</div>
                             <div class="field">
-                                <label class="label" id="toptenpx">Your Reps/Duration</label>
+                                <label class="label level-left" id="toptenpx">Your Reps/Duration</label>
                                 <div class="control has-icons-left has-icons-right">
                                     <input  class="input is-primary" 
                                             type="text"
@@ -53,7 +53,7 @@
                             </div>
                                 
                             <div class="field">
-                                <label class="label" id="notes">Additional Notes</label>
+                                <label class="label level-left" id="notes">Additional Notes</label>
                                 <div class="control has-icons-left has-icons-right">
                                     <textarea class="textarea is-primary" 
                                               placeholder="Your Notes" 
@@ -64,9 +64,10 @@
                                 
                             <div class="buttons">
                                 <button class="button is-primary" 
-                                        @click="userCompleted(index), addToFeed(index)"><strong>Post to Feed</strong></button>
-                                <button class="button is-primary is-light"><strong>Save</strong></button>
-                                <p v-show="feedSuccess"><strong>Posted to FitnessTracker Feed!</strong></p>
+                                        @click="userCompleted(index), addToFeed(index)">
+                                    <strong>Post to Feed</strong>
+                                </button>
+                                <!-- <button class="button is-primary is-light"><strong>Save</strong></button> -->
                             </div>
                             </div>
                         </div>
@@ -74,10 +75,10 @@
                     </div>
                 </div>
                 
-                <div class="tile is-4 is-parent">
+                <!-- <div class="tile is-4 is-parent">
                     <div class="tile is-child box">
-                        <p class="title"><b>Welcome back, {{ welcomeBackUser }}</b></p>
-                        <p class="subtitle"><b>My Saved Exercises</b></p>
+                        <p class="title"><b>My Saved Exercises</b></p>
+                        <p class="subtitle"><b>Welcome back, {{ welcomeBackUser }}!</b></p> 
                         <p class="has-text-weight-bold">Lorem ipsum dolor sit amet</p> 
                         <p>Consectetur adipiscing elit</p> 
                         <p class="has-text-weight-bold">Etiam semper diam at erat pulvinar</p> 
@@ -87,7 +88,7 @@
                         <p class="has-text-weight-bold">Morbi maximus, leo sit amet vehicula</p> 
                         <p>Eleifend nunc dui porta orci quis</p>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </section>
@@ -107,8 +108,8 @@ export default {
         userRepsDuration: '',
         userNotes: '',
 
-        feedSuccess: false,
-        welcomeBackUser: CurrentUser.Name
+        //feedSuccess: false,
+        //welcomeBackUser: CurrentUser.Name
         
     }),
     methods: {
@@ -137,6 +138,10 @@ export default {
                 this.error = error;
             }
         },
+
+        //feedSuccesser() {
+        //    feedSuccess = !feedSuccess;
+        //}
 
     },
     

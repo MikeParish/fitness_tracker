@@ -100,11 +100,8 @@
                             <div class="media-content">
                                 
                                 <div class="content">
-                                    <p>
-                                    <strong>{{ x.name }}</strong> completed {{ x.userRepsDuration }} of <strong>{{ x.tname }}</strong> 
-                                    {{ x.description }}
-                                    {{x.name}} said "{{ x.userNotes }}"
-                                    </p>
+                                    <p><strong>{{ x.name }}</strong> completed {{ x.userRepsDuration }} of <strong>{{ x.tname }}</strong></p>
+                                    <p>"{{ x.userNotes }}"</p>
                                 </div>
                                 
                                 <nav class="level is-mobile">
