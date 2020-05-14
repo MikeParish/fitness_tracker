@@ -24,11 +24,30 @@ const Completed = [
 
 const Feed = [];
 
+const AutoExercises = [
+    {
+        exname: 'Running'
+    },
+    {
+        exname: 'Swimming'
+    },
+    {   
+        exname: 'Walking'
+    },
+    { 
+        exname: 'Push-ups'
+    },
+    {    
+        exname: 'Archery'
+    }
+];
+
 module.exports = {
     Exercises,
     Regiments,
     Completed,
     Feed,
+    AutoExercises,
     addExercise(tname, repsDuration, description, videoURL) {
         Exercises.push({tname, repsDuration, description, videoURL});
         return true;
@@ -66,4 +85,8 @@ module.exports = {
         feedItem['profileImage'] = user.ProfileImage;
         return true;
     },
+    getAutoExercise(exname) {
+        const neededEx = AutoExercises.find(x=> x.exname == exname);
+        return true;
+    }
 }

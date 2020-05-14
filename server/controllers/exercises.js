@@ -9,7 +9,8 @@ router
         Exers: exercises.Exercises,
         Regiments: exercises.Regiments,
         Completed: exercises.Completed,
-        Feed: exercises.Feed
+        Feed: exercises.Feed,
+        AutoExers: exercises.AutoExercises
     }) )
     .post('/addexercises', (req, res) => res.send(          // /exercises/addexercises
         exercises.addExercise(req.body.tname, req.body.repsDuration, req.body.description, req.body.videoURL)
@@ -32,5 +33,8 @@ router
     .post('/feedpusher', (req, res) => res.send(            // /exercises/feedpusher
         exercises.feedPusher(req.userId, req.body.index)
     ) )
+    .get('/getautoexer'), (req, res) => res.send(
+        exercises.getAutoExercise(req.body.exname)
+    )
 
 module.exports = router;

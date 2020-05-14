@@ -57,6 +57,8 @@
                 </article>
                 
             </div>
+
+            
             
             
         
@@ -88,7 +90,7 @@ export default {
         sub: function(dec) {
             this.targetWeight -= dec;
         },
-    }
+    },
 }
 </script>
 

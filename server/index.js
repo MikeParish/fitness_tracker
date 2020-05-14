@@ -5,6 +5,7 @@ const usersController = require('./controllers/users');
 const exercisesController = require('./controllers/exercises');
 const myprofileController = require('./controllers/myprofile');
 const dashboardController = require('./controllers/dashboard');
+const finalController = require('./controllers/final');
 
 const app = express();
 const port = 3000;
@@ -32,6 +33,7 @@ app
     .use('/exercises', exercisesController) //(url, handler)
     .use('/myprofile', myprofileController)
     .use('/dashboard', dashboardController)
+    .use('/final', finalController)
 
     .use( (err, req, res, next ) => {
         console.error(err);

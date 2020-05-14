@@ -29,4 +29,8 @@ export default {
         //post request - url, body
         return true;
     },
+    async getAutoExer(name) {
+        await myFetch('/exercises/getautoexer', {name});
+        return true;
+    }
 }
