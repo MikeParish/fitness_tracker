@@ -152,7 +152,7 @@
                         placeholder="e.g. Running"
                         field="title"
                         :loading="isFetching"
-                        @typing="getAutoExerz"
+                        @typing="getAsyncData"
                         @select="option => selected = option">
 
                         <!-- <template slot-scope="props">
@@ -283,16 +283,10 @@ export default {
                         return
                     }
                     this.isFetching = true
-                    this.$http.get(`https://api.themoviedb.org/3/search/movie?api_key=bb6f51bef07465653c3e553d6ab161a8&query=${name}`)
-                        .then(({ data }) => {
-                            this.data = []
-                            data.results.forEach((item) => this.data.push(item))
-                        })
-                        .catch((error) => {
-                            this.data = []
-                            throw error
-                        })
-                        .finally(() => {
+                    
+                    Exercises.getAutoExer.Search(name)
+                        .then(x=> {
+                            this.data = x;
                             this.isFetching = false
                         })
                 }, 500)

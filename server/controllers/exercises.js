@@ -12,6 +12,9 @@ router
         Feed: exercises.Feed,
         AutoExers: exercises.AutoExercises
     }) )
+    .get('/autoexer', (req, res) => {
+        res.send(AutoExercises.list.filter(x=> x.includes(req.query.term) ))                     // /exercises/
+    })
     .post('/addexercises', (req, res) => res.send(          // /exercises/addexercises
         exercises.addExercise(req.body.tname, req.body.repsDuration, req.body.description, req.body.videoURL)
     ) )

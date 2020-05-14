@@ -9,6 +9,9 @@ export default {
                 console.log(x);
             });                 //data on server now mirrors data on client in the object state
     },
+    Search(term) {
+        return myFetch('/exercises/autoexer?term=${term}')
+    },
     async addExercise(tname, repsDuration, description, videoURL) {
         await myFetch('/exercises/addexercises', {tname, repsDuration, description, videoURL}); 
         //post request - url, body 
